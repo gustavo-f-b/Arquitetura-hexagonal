@@ -36,9 +36,13 @@ func (p *Product) Enable() error {
 	return errors.New("the price must be greather than zero to the enable the product")
 }
 
-// func (p *Product) Disable() error{
-
-// }
+func (p *Product) Disable() error {
+	if p.Price == 0 {
+		p.Status = DISABLED
+		return nil
+	}
+	return errors.New("the price must be zero to the desable the product")
+}
 
 func (p *Product) GetId() string {
 	return p.Id
