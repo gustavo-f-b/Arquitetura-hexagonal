@@ -68,26 +68,23 @@ func TestProduct_IsValid(t *testing.T) {
 	tests := []struct {
 		name    string
 		product *application.Product
-		want    bool
 		wantErr bool
 	}{
 		{
 			name:    "Invalid Product",
 			product: &application.Product{Id: uuid.NewV4().String(), Name: "Widget", Status: application.DISABLED, Price: -10.0},
-			want:    false,
 			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := tt.product.IsValid()
+			isValid, err := tt.product.IsValid()
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Product.IsValid() error = %v, wantErr %v", err, tt.wantErr)
 				return
-
 			}
-			if got != tt.want {
-				t.Errorf("Product.IsValid() = %v, want %v", got, tt.want)
+			if isValid == tt.wantErr {
+				t.Errorf("Product.IsValid() = %v, want %v", isValid, tt.wantErr)
 			}
 		})
 	}
