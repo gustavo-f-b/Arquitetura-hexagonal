@@ -6,8 +6,7 @@
 ![Ports & Adapters](https://codesoapbox.dev/wp-content/uploads/2022/08/hexagonal_simple_2.svg)
 
   
-
-## Resumo
+  
 
 -  **Domínio da Aplicação:** É o núcleo central do sistema, contendo toda a lógica de negócios. Não deve ter dependências externas.
 
@@ -27,6 +26,5 @@ A grande vantagem do uso da arquitetura *Ports and Adapters* é que ela permite 
 >
 > O projeto foi desenvolvido durante as aulas da [Full Cycle](https://fullcycle.com.br), abaixo estão outras referências que li para poder entender um pouco mais sobre.
 >
-> https://codesoapbox.dev/ports-adapters-aka-hexagonal-architecture-explained/
-> https://herbertograca.com/2017/09/14/ports-adapters-architecture/
-> https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)
+>  [Ports & Adapters (aka hexagonal) architecture explained](https://codesoapbox.dev/ports-adapters-aka-hexagonal-architecture-explained/)
+> [Ports & Adapters Architecture](https://herbertograca.com/2017/09/14/ports-adapters-architecture/)
