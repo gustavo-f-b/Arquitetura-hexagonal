@@ -4,6 +4,7 @@ import (
 	"errors"
 
 	"github.com/asaskevich/govalidator"
+	uuid "github.com/satori/go.uuid"
 )
 
 func init() {
@@ -18,6 +19,15 @@ type ProductInterface interface {
 	GetName() string
 	GetStatus() string
 	GetPrice() float32
+}
+
+func New() *Product {
+	product := Product{
+		Id:     uuid.NewV4().String(),
+		Status: DISABLED,
+	}
+
+	return &product
 }
 
 const (
