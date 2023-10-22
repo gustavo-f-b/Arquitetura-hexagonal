@@ -28,4 +28,5 @@ A grande vantagem do uso da arquitetura *Ports and Adapters* é que ela permite 
 > O projeto foi desenvolvido durante as aulas da [Full Cycle](https://fullcycle.com.br), abaixo estão outras referências que li para poder entender um pouco mais sobre.
 >
 >  [Ports & Adapters (aka hexagonal) architecture explained](https://codesoapbox.dev/ports-adapters-aka-hexagonal-architecture-explained/)
+> 
 > [Ports & Adapters Architecture](https://herbertograca.com/2017/09/14/ports-adapters-architecture/)
