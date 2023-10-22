@@ -7,29 +7,6 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
-func init() {
-	govalidator.SetFieldsRequiredByDefault(true)
-}
-
-type ProductInterface interface {
-	IsValid() (bool, error)
-	Enable() error
-	Disable() error
-	GetId() string
-	GetName() string
-	GetStatus() string
-	GetPrice() float32
-}
-
-func New() *Product {
-	product := Product{
-		Id:     uuid.NewV4().String(),
-		Status: DISABLED,
-	}
-
-	return &product
-}
-
 const (
 	DISABLED = "disabled"
 	ENABLED  = "enabled"
@@ -40,6 +17,39 @@ type Product struct {
 	Name   string  `valid:"required"`
 	Price  float32 `valid:"float,optional"`
 	Status string  `valid:"required"`
+}
+
+// Interfaces
+type ProductInterface interface {
+	IsValid() (bool, error)
+	Enable() error
+	Disable() error
+	GetId() string
+	GetName() string
+	GetStatus() string
+	GetPrice() float32
+}
+
+type ProductServiceInterface interface {
+	Get(id string) (ProductInterface, error)
+	Create(name string, price float64) (ProductInterface, error)
+	Enable(product ProductInterface) (ProductInterface, error)
+	Disable(product ProductInterface) (ProductInterface, error)
+}
+
+//Function
+
+func init() {
+	govalidator.SetFieldsRequiredByDefault(true)
+}
+
+func New() *Product {
+	product := Product{
+		Id:     uuid.NewV4().String(),
+		Status: DISABLED,
+	}
+
+	return &product
 }
 
 func (p *Product) IsValid() (bool, error) {
